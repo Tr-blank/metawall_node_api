@@ -4,7 +4,6 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
-const port = process.env.PORT || 3000
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
@@ -43,8 +42,4 @@ app.use((req, res, next) => {
   });
 });
 
-
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
-})
 module.exports = app;
