@@ -1,10 +1,10 @@
 const headers = require('./headersSetting');
 
-const errorHandle = (res, error = '') => {
+const errorHandle = (res, error, message = '失敗', status = 400) => {
   res.writeHead(400, headers);
   res.write(JSON.stringify({
-    status: 400,
-    message: '欄位未填寫正確，或無此 todo ID',
+    status,
+    message,
     error, 
   }));
   res.end();
