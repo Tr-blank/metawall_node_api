@@ -56,11 +56,21 @@ router.patch('/:id', async (req, res, next) => {
 });
 
 // 刪除單筆貼文
-router.delete('/:id', async function (req, res, next) {
+router.delete('/:id', async (req, res, next) => {
   try {
     const { id } = req.params;
     const result = await Post.findByIdAndDelete(id);
     if (!result) throw `查無此貼文ID:${id}`
+    successHandle(res, result, '刪除成功');
+  } catch (error) {
+    errorHandle(res, error, '刪除失敗');
+  }
+});
+
+// 刪除全部貼文
+router.delete('/', async (req, res, next) => {
+  try {
+    const result = await Post.deleteMany({});
     successHandle(res, result, '刪除成功');
   } catch (error) {
     errorHandle(res, error, '刪除失敗');
