@@ -44,7 +44,8 @@ router.patch('/:id', async (req, res, next) => {
   try {
     const { id } = req.params;
     const postData = req.body;
-    postData.content = postData.content.trim()
+    if (Object.keys(postData).length === 0) throw '未取得更新資料'
+    if (postData.content) postData.content = postData.content.trim()
     if (postData.content === '') throw 'content 貼文內容不可為空值'
     const updatedPost = await Post.findByIdAndUpdate(id, postData, { new: true });
     successHandle(res, updatedPost, '更新成功');
@@ -59,6 +60,7 @@ router.delete('/:id', async function (req, res, next) {
   try {
     const { id } = req.params;
     const result = await Post.findByIdAndDelete(id);
+    if (!result) throw `查無此貼文ID:${id}`
     successHandle(res, result, '刪除成功');
   } catch (error) {
     errorHandle(res, error, '刪除失敗');
