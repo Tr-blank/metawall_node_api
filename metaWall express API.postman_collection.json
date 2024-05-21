@@ -1,7 +1,7 @@
 {
 	"info": {
-		"_postman_id": "6d1bb247-2b6d-4ca1-8b39-b28d2fed9899",
-		"name": "metaWall node API",
+		"_postman_id": "0323aca8-71bb-4821-86a2-98e4fde9a4f6",
+		"name": "metaWall express API",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "34114085"
 	},
@@ -27,13 +27,34 @@
 			"response": []
 		},
 		{
+			"name": "取得單筆 posts",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://metawall-node-api.onrender.com/posts/664c759f01eaa7b079a6f755",
+					"protocol": "https",
+					"host": [
+						"metawall-node-api",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"posts",
+						"664c759f01eaa7b079a6f755"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "新增單筆 post",
 			"request": {
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name\": \"Matilda Croad\",\r\n    \"image\": \"http://dummyimage.com/248x100.png/dddddd/000000\",\r\n    \"content\": \"lobortis sapien sapien non mi integer ac neque duis bibendum morbi non quam nec dui luctus rutrum nulla tellus in sagittis dui vel nisl duis ac nibh fusce lacus purus aliquet at feugiat non pretium quis lectus suspendisse potenti in eleifend quam a\",\r\n    \"likes\": 39,\r\n    \"comments\": 871\r\n}",
+					"raw": "{\r\n    \"name\": \"Matilda Croad111\",\r\n    \"image\": \"http://dummyimage.com/248x100.png/dddddd/000000\",\r\n    \"content\": \"lobortis sapien sapien non mi integer ac neque duis bibendum morbi non quam nec dui luctus rutrum nulla tellus in sagittis dui vel nisl duis ac nibh fusce lacus purus aliquet at feugiat non pretium quis lectus suspendisse potenti in eleifend quam a\",\r\n    \"likes\": 39,\r\n    \"comments\": 871\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -56,13 +77,13 @@
 			"response": []
 		},
 		{
-			"name": "編輯單筆 post",
+			"name": "更新單筆 post",
 			"request": {
 				"method": "PATCH",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name\": \"Matilda Croad111\"\r\n}",
+					"raw": "{\r\n\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -70,7 +91,7 @@
 					}
 				},
 				"url": {
-					"raw": "https://metawall-node-api.onrender.com/posts/662526e2a4685b536f557b09",
+					"raw": "https://metawall-node-api.onrender.com/posts/664c6effe098c90379f05253",
 					"protocol": "https",
 					"host": [
 						"metawall-node-api",
@@ -79,7 +100,7 @@
 					],
 					"path": [
 						"posts",
-						"662526e2a4685b536f557b09"
+						"664c6effe098c90379f05253"
 					]
 				}
 			},
@@ -91,7 +112,7 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "https://metawall-node-api.onrender.com/api.onrender.com/posts/66252758a4685b536f557b0c",
+					"raw": "https://metawall-node-api.onrender.com/posts/664c6f1a4c6f79eac1913a4b",
 					"protocol": "https",
 					"host": [
 						"metawall-node-api",
@@ -99,21 +120,20 @@
 						"com"
 					],
 					"path": [
-						"api.onrender.com",
 						"posts",
-						"66252758a4685b536f557b0c"
+						"664c6f1a4c6f79eac1913a4b"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "刪除所有 posts",
+			"name": "刪除所有 post",
 			"request": {
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "https://metawall-node-api.onrender.com/api.onrender.com/posts/66252758a4685b536f557b0c",
+					"raw": "https://metawall-node-api.onrender.com/posts",
 					"protocol": "https",
 					"host": [
 						"metawall-node-api",
@@ -121,9 +141,7 @@
 						"com"
 					],
 					"path": [
-						"api.onrender.com",
-						"posts",
-						"66252758a4685b536f557b0c"
+						"posts"
 					]
 				}
 			},
