@@ -2,13 +2,19 @@ const express = require('express');
 const router = express.Router();
 const successHandle = require('../successHandle');
 const errorHandle = require('../errorHandle');
-const Post = require('../models/posts');
-const { Error } = require('mongoose');
+const Post = require('../models/post');
+const User = require('../models/user')
 
 // 取得所有貼文
 router.get('/', async (req, res, next) => {
   try {
-    const posts = await Post.find();
+    const { sort, keyword } = req.query;
+    const timeSort = sort == "asc" ? "createdAt":"-createdAt"
+    const query = keyword ? { content: new RegExp(req.query.keyword) } : {};
+    const posts = await Post.find(query).populate({
+        path: 'user',
+        select: 'name avatar'
+      }).sort(timeSort);
     successHandle(res, posts, '取得成功');
   } catch (error) {
     errorHandle(res, error, '取得失敗');
@@ -19,7 +25,10 @@ router.get('/', async (req, res, next) => {
 router.get('/:id', async (req, res, next) => {
   try {
     const { id } = req.params;
-    const posts = await Post.findById(id);
+    const posts = await Post.findById(id).populate({
+      path: 'user',
+      select: 'name avatar'
+    });
     successHandle(res, posts, '取得成功');
   } catch (error) {
     errorHandle(res, error, '取得失敗');
