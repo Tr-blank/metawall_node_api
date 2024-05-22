@@ -79,6 +79,7 @@ router.delete('/:id', async (req, res, next) => {
 // 刪除全部貼文
 router.delete('/', async (req, res, next) => {
   try {
+    if (req.originalUrl === '/posts/') throw '未輸入要刪除的貼文ID'
     const result = await Post.deleteMany({});
     successHandle(res, result, '刪除成功');
   } catch (error) {
