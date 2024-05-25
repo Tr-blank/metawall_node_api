@@ -1,58 +1,42 @@
 const express = require('express');
 const router = express.Router();
-const successHandle = require('../successHandle');
-const errorHandle = require('../errorHandle');
+const appError = require("../service/appError");
+const handleErrorAsync = require("../service/handleErrorAsync");
+const handleSuccessRes = require('../service/handleSuccessRes');
 const User = require('../models/user');
 
 // 取得所有會員資訊
-router.get('/', async (req, res, next) => {
-  try {
+router.get('/', handleErrorAsync(async (req, res, next) => {
     const users = await User.find();
-    successHandle(res, users, '取得成功');
-  } catch (error) {
-    errorHandle(res, error, '取得失敗');
-  }
-});
+    handleSuccessRes(res, users, '取得成功');
+}));
 
 // 取得單筆會員資訊
-router.get('/:id', async (req, res, next) => {
-  try {
+router.get('/:id', handleErrorAsync(async (req, res, next) => {
     const { id } = req.params;
     const posts = await User.findById(id);
-    successHandle(res, posts, '取得成功');
-  } catch (error) {
-    errorHandle(res, error, '取得失敗');
-  }
-});
+    handleSuccessRes(res, posts, '取得成功');
+}));
 
 // 新增單筆會員資訊
-router.post('/', async (req, res, next) => {
-  try {
+router.post('/', handleErrorAsync(async (req, res, next) => {
     const postData = req.body;
     postData.name = postData.name.trim()
-    if (!postData.name) throw 'name 不可為空值'
+    if (!postData.name) return next(appError(400, 'name 不可為空值'))
     const newPost = await User.create(postData);
-    successHandle(res, newPost, '新增成功');
-  } catch (error) {
-    errorHandle(res, error, '新增失敗');
-  }
-});
+    handleSuccessRes(res, newPost, '新增成功');
+}));
 
 // 更新單筆會員資訊
-router.patch('/:id', async (req, res, next) => {
-  try {
+router.patch('/:id', handleErrorAsync(async (req, res, next) => {
     const { id } = req.params;
     const postData = req.body;
-    if (Object.keys(postData).length === 0) throw '未取得更新資料'
+    if (Object.keys(postData).length === 0) return next(appError(400, '未取得更新資料'))
     if (postData.name) postData.name = postData.name.trim()
-    if (postData.name === '') throw 'name 不可為空值'
+    if (postData.name === '') return next(appError(400, 'name 不可為空值'))
     const updatedPost = await User.findByIdAndUpdate(id, postData, { new: true });
-    successHandle(res, updatedPost, '更新成功');
-  }
-  catch (error) {
-    errorHandle(res, error, '更新失敗');
-  }
-});
+    handleSuccessRes(res, updatedPost, '更新成功');
+}));
 
 
 module.exports = router;
