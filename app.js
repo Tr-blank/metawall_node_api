@@ -10,6 +10,7 @@ const usersRouter = require('./routes/users');
 const postRouter = require('./routes/posts');
 
 const isDev = process.env.NODE_ENV.trim() === 'dev'
+dotenv.config({ path: './config.env' })
 
 // 程式出現重大錯誤時
 process.on('uncaughtException', error => {
@@ -20,8 +21,6 @@ process.on('uncaughtException', error => {
   if(isDev) console.error(error.stack); //只能在dev出現，不可再main出現
 	process.exit(1);
 });
-
-dotenv.config({ path: './config.env' })
 
 const DB = process.env.DATABASE.replace('<password>', process.env.DATABASE_PASSWORD);
 mongoose

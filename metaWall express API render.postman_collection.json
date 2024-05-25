@@ -1,0 +1,323 @@
+{
+	"info": {
+		"_postman_id": "cfe34b17-1107-418d-81d4-aebbb1fdeda4",
+		"name": "metaWall express API render",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34114085"
+	},
+	"item": [
+		{
+			"name": "取得所有 posts",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://metawall-node-api.onrender.com/posts",
+					"protocol": "https",
+					"host": [
+						"metawall-node-api",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "取得單筆 post",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://metawall-node-api.onrender.com/posts/664e038b0c6751d8a4417e53",
+					"protocol": "https",
+					"host": [
+						"metawall-node-api",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"posts",
+						"664e038b0c6751d8a4417e53"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "新增單筆 post",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NTFiZjhjY2YxYjFlZTgwMTg3YzNjNyIsImlhdCI6MTcxNjYzNDAwOSwiZXhwIjoxNzE3MjM4ODA5fQ.YE8Dxgt0wZy8-7Lfcd1HDHsXkanhEinLOSFru93n-gk"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"image\": \"http://dummyimage.com/248x100.png/dddddd/000000\",\r\n    \"content\": \"78999999\",\r\n    \"likes\": 39,\r\n    \"comments\": 871\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://metawall-node-api.onrender.com/posts",
+					"protocol": "https",
+					"host": [
+						"metawall-node-api",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "更新單筆 post",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NTFiZjhjY2YxYjFlZTgwMTg3YzNjNyIsImlhdCI6MTcxNjYzNDAwOSwiZXhwIjoxNzE3MjM4ODA5fQ.YE8Dxgt0wZy8-7Lfcd1HDHsXkanhEinLOSFru93n-gk"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"content\": \"128888\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://metawall-node-api.onrender.com/posts/6651c45e6d1cac39bd555e0f",
+					"protocol": "https",
+					"host": [
+						"metawall-node-api",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"posts",
+						"6651c45e6d1cac39bd555e0f"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "刪除單筆 post",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://metawall-node-api.onrender.com/posts/6651c720c54d793507849bca?Authorization=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NTFiZjhjY2YxYjFlZTgwMTg3YzNjNyIsImlhdCI6MTcxNjYzNDA5NSwiZXhwIjoxNzE3MjM4ODk1fQ.TeFZM0vYDzrz0DVXIgSoYmNdj5sGHSW-Ca7blscJVjo",
+					"protocol": "https",
+					"host": [
+						"metawall-node-api",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"posts",
+						"6651c720c54d793507849bca"
+					],
+					"query": [
+						{
+							"key": "Authorization",
+							"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NTFiZjhjY2YxYjFlZTgwMTg3YzNjNyIsImlhdCI6MTcxNjYzNDA5NSwiZXhwIjoxNzE3MjM4ODk1fQ.TeFZM0vYDzrz0DVXIgSoYmNdj5sGHSW-Ca7blscJVjo"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "取得所有 users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://metawall-node-api.onrender.com/users",
+					"protocol": "https",
+					"host": [
+						"metawall-node-api",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "註冊 user sign_up",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"new_user2\",\r\n    \"email\": \"newUser2@gmail.com\",\r\n    \"password\": \"qwertyyui\",\r\n    \"confirmPassword\": \"qwertyyui\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://metawall-node-api.onrender.com/users/sign_up",
+					"protocol": "https",
+					"host": [
+						"metawall-node-api",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"users",
+						"sign_up"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "登入 user sign_in",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"newUser12@gmail.com\",\r\n    \"password\": \"qwertyyui\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://metawall-node-api.onrender.com/users/sign_in",
+					"protocol": "https",
+					"host": [
+						"metawall-node-api",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"users",
+						"sign_in"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "重設 user updatePassword",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NTFiZjhjY2YxYjFlZTgwMTg3YzNjNyIsImlhdCI6MTcxNjYzMzUxOSwiZXhwIjoxNzE3MjM4MzE5fQ.zCeR5PkDI8cpEAuTi958EsVA1MN4b7GAB1_hJetipGk"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"password\": \"wwww2222123\",\r\n    \"confirmPassword\": \"wwww2222123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://metawall-node-api.onrender.com/users/updatePassword",
+					"protocol": "https",
+					"host": [
+						"metawall-node-api",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"users",
+						"updatePassword"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "取得 user profile",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NTFiZjhjY2YxYjFlZTgwMTg3YzNjNyIsImlhdCI6MTcxNjYzNDAwOSwiZXhwIjoxNzE3MjM4ODA5fQ.YE8Dxgt0wZy8-7Lfcd1HDHsXkanhEinLOSFru93n-gk"
+					}
+				],
+				"url": {
+					"raw": "https://metawall-node-api.onrender.com/users/profile",
+					"protocol": "https",
+					"host": [
+						"metawall-node-api",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"users",
+						"profile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "更新 user profile",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NTFiZjhjY2YxYjFlZTgwMTg3YzNjNyIsImlhdCI6MTcxNjYzMzUxOSwiZXhwIjoxNzE3MjM4MzE5fQ.zCeR5PkDI8cpEAuTi958EsVA1MN4b7GAB1_hJetipGk"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"\",\r\n    \"avatar\": \"133332321\",\r\n    \"gender\": \"female\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://metawall-node-api.onrender.com/users/profile",
+					"protocol": "https",
+					"host": [
+						"metawall-node-api",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"users",
+						"profile"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
