@@ -49,7 +49,7 @@ app.use('/posts', postRouter);
 app.use((req, res, next) => {
   res.status(404).json({
     status: 404,
-    message: "查無此路由",
+    message: '查無此路由',
   });
 });
 
@@ -89,7 +89,7 @@ app.use((error, req, res, next) => {
   } 
   // production mongoose
   if (error.name === 'ValidationError' || error.name === 'CastError'){
-    error.message = "資料欄位未填寫正確，請重新輸入！"
+    error.message = '資料欄位未填寫正確，請重新輸入！'
     error.isOperational = true;
     return resErrorProd(error, res)
   }
