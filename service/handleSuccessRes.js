@@ -1,6 +1,6 @@
-const headers = require('./headersSetting');
+const headers = require('../service/headersSetting');
 
-function successHandle(res, data = [], message = '成功') {
+function handleSuccessRes(res, data = [], message = '成功') {
     res.writeHead(200, headers);
     res.write(
       JSON.stringify({
@@ -12,5 +12,5 @@ function successHandle(res, data = [], message = '成功') {
     res.end();
   }
   
-  module.exports = successHandle;
+  module.exports = handleSuccessRes;
   
