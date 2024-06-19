@@ -7,6 +7,37 @@
 	},
 	"item": [
 		{
+			"name": "上傳圖片 upload/image",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "files",
+							"type": "file",
+							"src": []
+						}
+					]
+				},
+				"url": {
+					"raw": "https://metawall-node-api.onrender.com/upload/image",
+					"protocol": "https",
+					"host": [
+						"metawall-node-api",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"upload",
+						"image"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "取得所有 posts",
 			"request": {
 				"method": "GET",
@@ -170,7 +201,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name\": \"new_user2\",\r\n    \"email\": \"newUser2@gmail.com\",\r\n    \"password\": \"qwertyyui\",\r\n    \"confirmPassword\": \"qwertyyui\"\r\n}",
+					"raw": "{\r\n    \"name\": \"new_user1122\",\r\n    \"email\": \"newUser1122@gmail.com\",\r\n    \"password\": \"asd123qwe33\",\r\n    \"confirmPassword\": \"asd123qwe33\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"

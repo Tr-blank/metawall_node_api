@@ -4,13 +4,13 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
+dotenv.config({ path: './config.env' })
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const postRouter = require('./routes/posts');
-
+const uploadRouter = require('./routes/upload');
 const isDev = process.env.NODE_ENV.trim() === 'dev'
-dotenv.config({ path: './config.env' })
 
 // 程式出現重大錯誤時
 process.on('uncaughtException', error => {
@@ -43,6 +43,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/posts', postRouter);
+app.use('/upload', uploadRouter);
 
 // 404 查無此路由
 app.use((req, res, next) => {
